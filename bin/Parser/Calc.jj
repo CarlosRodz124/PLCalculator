@@ -1,0 +1,71 @@
+PARSER_BEGIN(Calc)
+package Parser;
+public class Calc {
+public static void main (String args []) {
+Calc parser = new Calc(System.in);
+for (;;)
+try {
+if (parser.expr() == -1)
+System.exit(0);
+} catch (Exception e) {
+e.printStackTrace(); System.exit(1);
+}
+}
+}
+PARSER_END(Calc)
+
+SKIP:    // defines input to be ignored
+{ " " | "\r" | "\t"
+}
+
+TOKEN:    // defines token names
+{ < EOL: "\n" >
+| < CONSTANT: ( <DIGIT> )+ > // re: 1 or more
+| < #DIGIT: ["0" - "9"] > // private re
+}
+
+int expr() throws Exception: // expr: sum \n
+{ int e; }   // prints result; -1 at eof, 0 at eol/error
+{ try {
+( e = sum() <EOL> { System.out.println("\t"+e); return 1; }
+| <EOL>  { return 0; }
+| <EOF>  { return -1; }
+)
+} catch (Exception err) {
+if (err instanceof ParseException || err instanceof ArithmeticException
+|| err instanceof NumberFormatException) {
+System.err.println(err);
+for (;;)
+switch (getNextToken().kind) {
+case EOF: return -1;
+case EOL: return 0;
+}
+}
+throw err;
+}
+}
+int sum() throws NumberFormatException:  // sum: product { +- product }
+{ int s, r; }     // returns value
+{ s = product()
+( "+" r = product() { s += r; }
+| "-" r = product() { s -= r; }
+)*   { return s; }
+}
+
+int product() throws NumberFormatException: // product: term { *%/ term }
+{ int p, r;}     // returns value
+{ p = term()
+( "*" r = term() { p *= r; }
+| "%" r = term() { p %= r; }
+| "/" r = term() { p /= r; }
+)*   { return p; }
+}
+
+int term() throws NumberFormatException:
+// term: +term | -term | (sum) | number
+{ int t; }   // returns value
+{ "+" t = term() { return t; }
+| "-" t = term() { return -t; }
+| "(" t = sum() ")" { return t; }
+| <CONSTANT>  { return Integer.parseInt(token.image); }
+}
