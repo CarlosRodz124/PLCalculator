@@ -1,4 +1,4 @@
-// Generated from C:/Users/antho/Desktop/polynomial/grammar\poly.g4 by ANTLR 4.8
+// Generated from C:/Users/User/git/PLCalculator/grammar\poly.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -20,22 +20,27 @@ public class polyParser extends Parser {
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
 		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
 		T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, T__29=30, T__30=31, 
-		T__31=32, INTEGER=33, ID=34, EXP=35, TERM=36, MONOMIAL=37, POLYNOMIAL=38, 
-		STRING=39, FACTOR=40, EXPLIST=41, PROPEXPLIST=42, IDLIST=43, DEF=44, EMPTY=45, 
-		BOOL=46, UNOP=47, SIGN=48, BINOP=49, CONDITIONS=50, WS=51, CHARACTER=52, 
-		DIGIT=53, DELIMITER=54, OPERATOR=55;
+		T__31=32, T__32=33, T__33=34, T__34=35, T__35=36, INTEGER=37, ID=38, EXP=39, 
+		TERM=40, MONOMIAL=41, POLYNOMIAL=42, STRING=43, FACTOR=44, EXPLIST=45, 
+		PROPEXPLIST=46, IDLIST=47, DEF=48, EMPTY=49, BOOL=50, UNOP=51, SIGN=52, 
+		BINOP=53, CONDITIONS=54, WS=55, CHARACTER=56, DIGIT=57, DELIMITER=58, 
+		OPERATOR=59;
 	public static final int
 		RULE_program = 0, RULE_exp = 1, RULE_term = 2, RULE_sumpolynomial = 3, 
-		RULE_subpolynomial = 4, RULE_monomial = 5, RULE_polynomial = 6, RULE_string = 7, 
-		RULE_factor = 8, RULE_expList = 9, RULE_propExpList = 10, RULE_idList = 11, 
-		RULE_propIdList = 12, RULE_def = 13, RULE_empty = 14, RULE_bool = 15, 
-		RULE_unop = 16, RULE_sign = 17, RULE_binop = 18, RULE_id = 19, RULE_integer = 20;
+		RULE_subpolynomial = 4, RULE_mulpolynomial = 5, RULE_mulcpolynomial = 6, 
+		RULE_derpolynomial = 7, RULE_defintegralpolynomial = 8, RULE_integralpolynomial = 9, 
+		RULE_evalpolynomial = 10, RULE_degree = 11, RULE_equalpolynomial = 12, 
+		RULE_monomial = 13, RULE_polynomial = 14, RULE_string = 15, RULE_factor = 16, 
+		RULE_expList = 17, RULE_propExpList = 18, RULE_idList = 19, RULE_propIdList = 20, 
+		RULE_def = 21, RULE_empty = 22, RULE_bool = 23, RULE_unop = 24, RULE_sign = 25, 
+		RULE_binop = 26, RULE_id = 27, RULE_integer = 28;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"program", "exp", "term", "sumpolynomial", "subpolynomial", "monomial", 
-			"polynomial", "string", "factor", "expList", "propExpList", "idList", 
-			"propIdList", "def", "empty", "bool", "unop", "sign", "binop", "id", 
-			"integer"
+			"program", "exp", "term", "sumpolynomial", "subpolynomial", "mulpolynomial", 
+			"mulcpolynomial", "derpolynomial", "defintegralpolynomial", "integralpolynomial", 
+			"evalpolynomial", "degree", "equalpolynomial", "monomial", "polynomial", 
+			"string", "factor", "expList", "propExpList", "idList", "propIdList", 
+			"def", "empty", "bool", "unop", "sign", "binop", "id", "integer"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -43,11 +48,12 @@ public class polyParser extends Parser {
 	private static String[] makeLiteralNames() {
 		return new String[] {
 			null, "'class'", "'{'", "'}'", "'if'", "':'", "'else'", "'while'", "'for'", 
-			"'in'", "'('", "')'", "'+'", "'-'", "'^'", "'$'", "'\"'", "','", "':='", 
-			"';'", "'true'", "'false'", "'~'", "'*'", "'/'", "'='", "'!='", "'<'", 
-			"'>'", "'<='", "'>='", "'&'", "'|'", "'integer'", "'id'", "'exp'", "'term'", 
-			"'monomial'", "'polynomial'", "'string'", "'factor'", "'expList'", "'propExpList'", 
-			"'idList'", "'def'", "'empty'", "'bool'", "'unop'", "'sign'", "'binop'"
+			"'in'", "'('", "')'", "'+'", "'-'", "'*'", "'der'", "'integral'", "'eval'", 
+			"'degree'", "'='", "'^'", "'$'", "'\"'", "','", "':='", "';'", "'true'", 
+			"'false'", "'~'", "'/'", "'!='", "'<'", "'>'", "'<='", "'>='", "'&'", 
+			"'|'", "'integer'", "'id'", "'exp'", "'term'", "'monomial'", "'polynomial'", 
+			"'string'", "'factor'", "'expList'", "'propExpList'", "'idList'", "'def'", 
+			"'empty'", "'bool'", "'unop'", "'sign'", "'binop'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -55,10 +61,11 @@ public class polyParser extends Parser {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, null, null, null, null, null, "INTEGER", "ID", 
-			"EXP", "TERM", "MONOMIAL", "POLYNOMIAL", "STRING", "FACTOR", "EXPLIST", 
-			"PROPEXPLIST", "IDLIST", "DEF", "EMPTY", "BOOL", "UNOP", "SIGN", "BINOP", 
-			"CONDITIONS", "WS", "CHARACTER", "DIGIT", "DELIMITER", "OPERATOR"
+			null, null, null, null, null, null, null, null, null, null, null, null, 
+			null, "INTEGER", "ID", "EXP", "TERM", "MONOMIAL", "POLYNOMIAL", "STRING", 
+			"FACTOR", "EXPLIST", "PROPEXPLIST", "IDLIST", "DEF", "EMPTY", "BOOL", 
+			"UNOP", "SIGN", "BINOP", "CONDITIONS", "WS", "CHARACTER", "DIGIT", "DELIMITER", 
+			"OPERATOR"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -148,27 +155,27 @@ public class polyParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(42);
+			setState(58);
 			match(T__0);
-			setState(43);
+			setState(59);
 			id();
-			setState(44);
+			setState(60);
 			match(T__1);
-			setState(48);
+			setState(64);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__3) | (1L << T__6) | (1L << T__7) | (1L << T__9) | (1L << T__11) | (1L << T__12) | (1L << T__14) | (1L << T__15) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << WS) | (1L << CHARACTER) | (1L << DIGIT))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__3) | (1L << T__6) | (1L << T__7) | (1L << T__9) | (1L << T__11) | (1L << T__12) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__20) | (1L << T__21) | (1L << T__25) | (1L << T__26) | (1L << T__27) | (1L << WS) | (1L << CHARACTER) | (1L << DIGIT))) != 0)) {
 				{
 				{
-				setState(45);
+				setState(61);
 				exp();
 				}
 				}
-				setState(50);
+				setState(66);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(51);
+			setState(67);
 			match(T__2);
 			}
 		}
@@ -226,29 +233,29 @@ public class polyParser extends Parser {
 		enterRule(_localctx, 2, RULE_exp);
 		try {
 			int _alt;
-			setState(87);
+			setState(103);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(53);
+				setState(69);
 				term();
-				setState(59);
+				setState(75);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
 				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(54);
+						setState(70);
 						binop();
-						setState(55);
+						setState(71);
 						exp();
 						}
 						} 
 					}
-					setState(61);
+					setState(77);
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
 				}
@@ -257,62 +264,62 @@ public class polyParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(62);
+				setState(78);
 				match(T__3);
-				setState(63);
+				setState(79);
 				exp();
-				setState(64);
+				setState(80);
 				match(T__4);
-				setState(65);
+				setState(81);
 				exp();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(67);
+				setState(83);
 				match(T__3);
-				setState(68);
+				setState(84);
 				exp();
-				setState(69);
+				setState(85);
 				match(T__4);
-				setState(70);
+				setState(86);
 				exp();
-				setState(71);
+				setState(87);
 				match(T__5);
-				setState(72);
+				setState(88);
 				match(T__4);
-				setState(73);
+				setState(89);
 				exp();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(75);
+				setState(91);
 				match(T__6);
-				setState(76);
+				setState(92);
 				exp();
-				setState(77);
+				setState(93);
 				match(T__4);
-				setState(78);
+				setState(94);
 				exp();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(80);
+				setState(96);
 				match(T__7);
-				setState(81);
+				setState(97);
 				id();
-				setState(82);
+				setState(98);
 				match(T__8);
-				setState(83);
+				setState(99);
 				term();
-				setState(84);
+				setState(100);
 				match(T__4);
-				setState(85);
+				setState(101);
 				exp();
 				}
 				break;
@@ -363,6 +370,30 @@ public class polyParser extends Parser {
 		public SubpolynomialContext subpolynomial() {
 			return getRuleContext(SubpolynomialContext.class,0);
 		}
+		public MulpolynomialContext mulpolynomial() {
+			return getRuleContext(MulpolynomialContext.class,0);
+		}
+		public MulcpolynomialContext mulcpolynomial() {
+			return getRuleContext(MulcpolynomialContext.class,0);
+		}
+		public DerpolynomialContext derpolynomial() {
+			return getRuleContext(DerpolynomialContext.class,0);
+		}
+		public DefintegralpolynomialContext defintegralpolynomial() {
+			return getRuleContext(DefintegralpolynomialContext.class,0);
+		}
+		public IntegralpolynomialContext integralpolynomial() {
+			return getRuleContext(IntegralpolynomialContext.class,0);
+		}
+		public EvalpolynomialContext evalpolynomial() {
+			return getRuleContext(EvalpolynomialContext.class,0);
+		}
+		public DegreeContext degree() {
+			return getRuleContext(DegreeContext.class,0);
+		}
+		public EqualpolynomialContext equalpolynomial() {
+			return getRuleContext(EqualpolynomialContext.class,0);
+		}
 		public PolynomialContext polynomial() {
 			return getRuleContext(PolynomialContext.class,0);
 		}
@@ -393,40 +424,40 @@ public class polyParser extends Parser {
 		enterRule(_localctx, 4, RULE_term);
 		try {
 			int _alt;
-			setState(110);
+			setState(134);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(89);
+				setState(105);
 				unop();
-				setState(90);
+				setState(106);
 				term();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(92);
+				setState(108);
 				factor();
-				setState(99);
+				setState(115);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(93);
+						setState(109);
 						match(T__9);
-						setState(94);
+						setState(110);
 						expList();
-						setState(95);
+						setState(111);
 						match(T__10);
 						}
 						} 
 					}
-					setState(101);
+					setState(117);
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 				}
@@ -435,56 +466,112 @@ public class polyParser extends Parser {
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(102);
+				setState(118);
 				empty();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(103);
+				setState(119);
 				integer();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(104);
+				setState(120);
 				bool();
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(105);
+				setState(121);
 				string();
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(106);
+				setState(122);
 				sumpolynomial();
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(107);
+				setState(123);
 				subpolynomial();
 				}
 				break;
 			case 9:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(108);
-				polynomial();
+				setState(124);
+				mulpolynomial();
 				}
 				break;
 			case 10:
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(109);
+				setState(125);
+				mulcpolynomial();
+				}
+				break;
+			case 11:
+				enterOuterAlt(_localctx, 11);
+				{
+				setState(126);
+				derpolynomial();
+				}
+				break;
+			case 12:
+				enterOuterAlt(_localctx, 12);
+				{
+				setState(127);
+				defintegralpolynomial();
+				}
+				break;
+			case 13:
+				enterOuterAlt(_localctx, 13);
+				{
+				setState(128);
+				integralpolynomial();
+				}
+				break;
+			case 14:
+				enterOuterAlt(_localctx, 14);
+				{
+				setState(129);
+				evalpolynomial();
+				}
+				break;
+			case 15:
+				enterOuterAlt(_localctx, 15);
+				{
+				setState(130);
+				degree();
+				}
+				break;
+			case 16:
+				enterOuterAlt(_localctx, 16);
+				{
+				setState(131);
+				equalpolynomial();
+				}
+				break;
+			case 17:
+				enterOuterAlt(_localctx, 17);
+				{
+				setState(132);
+				polynomial();
+				}
+				break;
+			case 18:
+				enterOuterAlt(_localctx, 18);
+				{
+				setState(133);
 				monomial();
 				}
 				break;
@@ -533,11 +620,11 @@ public class polyParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(112);
+			setState(136);
 			polynomial();
-			setState(113);
+			setState(137);
 			match(T__11);
-			setState(114);
+			setState(138);
 			polynomial();
 			}
 		}
@@ -584,11 +671,427 @@ public class polyParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(116);
+			setState(140);
 			polynomial();
-			setState(117);
+			setState(141);
 			match(T__12);
-			setState(118);
+			setState(142);
+			polynomial();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class MulpolynomialContext extends ParserRuleContext {
+		public List<PolynomialContext> polynomial() {
+			return getRuleContexts(PolynomialContext.class);
+		}
+		public PolynomialContext polynomial(int i) {
+			return getRuleContext(PolynomialContext.class,i);
+		}
+		public MulpolynomialContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_mulpolynomial; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).enterMulpolynomial(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).exitMulpolynomial(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof polyVisitor ) return ((polyVisitor<? extends T>)visitor).visitMulpolynomial(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final MulpolynomialContext mulpolynomial() throws RecognitionException {
+		MulpolynomialContext _localctx = new MulpolynomialContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_mulpolynomial);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(144);
+			polynomial();
+			setState(145);
+			match(T__13);
+			setState(146);
+			polynomial();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class MulcpolynomialContext extends ParserRuleContext {
+		public PolynomialContext polynomial() {
+			return getRuleContext(PolynomialContext.class,0);
+		}
+		public IntegerContext integer() {
+			return getRuleContext(IntegerContext.class,0);
+		}
+		public MulcpolynomialContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_mulcpolynomial; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).enterMulcpolynomial(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).exitMulcpolynomial(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof polyVisitor ) return ((polyVisitor<? extends T>)visitor).visitMulcpolynomial(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final MulcpolynomialContext mulcpolynomial() throws RecognitionException {
+		MulcpolynomialContext _localctx = new MulcpolynomialContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_mulcpolynomial);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(148);
+			polynomial();
+			setState(149);
+			match(T__13);
+			setState(150);
+			integer();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class DerpolynomialContext extends ParserRuleContext {
+		public PolynomialContext polynomial() {
+			return getRuleContext(PolynomialContext.class,0);
+		}
+		public DerpolynomialContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_derpolynomial; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).enterDerpolynomial(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).exitDerpolynomial(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof polyVisitor ) return ((polyVisitor<? extends T>)visitor).visitDerpolynomial(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final DerpolynomialContext derpolynomial() throws RecognitionException {
+		DerpolynomialContext _localctx = new DerpolynomialContext(_ctx, getState());
+		enterRule(_localctx, 14, RULE_derpolynomial);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(152);
+			match(T__14);
+			setState(153);
+			polynomial();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class DefintegralpolynomialContext extends ParserRuleContext {
+		public PolynomialContext polynomial() {
+			return getRuleContext(PolynomialContext.class,0);
+		}
+		public List<IntegerContext> integer() {
+			return getRuleContexts(IntegerContext.class);
+		}
+		public IntegerContext integer(int i) {
+			return getRuleContext(IntegerContext.class,i);
+		}
+		public DefintegralpolynomialContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_defintegralpolynomial; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).enterDefintegralpolynomial(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).exitDefintegralpolynomial(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof polyVisitor ) return ((polyVisitor<? extends T>)visitor).visitDefintegralpolynomial(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final DefintegralpolynomialContext defintegralpolynomial() throws RecognitionException {
+		DefintegralpolynomialContext _localctx = new DefintegralpolynomialContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_defintegralpolynomial);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(155);
+			match(T__15);
+			setState(156);
+			polynomial();
+			setState(157);
+			integer();
+			setState(158);
+			integer();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class IntegralpolynomialContext extends ParserRuleContext {
+		public PolynomialContext polynomial() {
+			return getRuleContext(PolynomialContext.class,0);
+		}
+		public IntegralpolynomialContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_integralpolynomial; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).enterIntegralpolynomial(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).exitIntegralpolynomial(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof polyVisitor ) return ((polyVisitor<? extends T>)visitor).visitIntegralpolynomial(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final IntegralpolynomialContext integralpolynomial() throws RecognitionException {
+		IntegralpolynomialContext _localctx = new IntegralpolynomialContext(_ctx, getState());
+		enterRule(_localctx, 18, RULE_integralpolynomial);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(160);
+			match(T__15);
+			setState(161);
+			polynomial();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class EvalpolynomialContext extends ParserRuleContext {
+		public PolynomialContext polynomial() {
+			return getRuleContext(PolynomialContext.class,0);
+		}
+		public IntegerContext integer() {
+			return getRuleContext(IntegerContext.class,0);
+		}
+		public EvalpolynomialContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_evalpolynomial; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).enterEvalpolynomial(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).exitEvalpolynomial(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof polyVisitor ) return ((polyVisitor<? extends T>)visitor).visitEvalpolynomial(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final EvalpolynomialContext evalpolynomial() throws RecognitionException {
+		EvalpolynomialContext _localctx = new EvalpolynomialContext(_ctx, getState());
+		enterRule(_localctx, 20, RULE_evalpolynomial);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(163);
+			match(T__16);
+			setState(164);
+			polynomial();
+			setState(165);
+			integer();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class DegreeContext extends ParserRuleContext {
+		public PolynomialContext polynomial() {
+			return getRuleContext(PolynomialContext.class,0);
+		}
+		public MonomialContext monomial() {
+			return getRuleContext(MonomialContext.class,0);
+		}
+		public DegreeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_degree; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).enterDegree(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).exitDegree(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof polyVisitor ) return ((polyVisitor<? extends T>)visitor).visitDegree(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final DegreeContext degree() throws RecognitionException {
+		DegreeContext _localctx = new DegreeContext(_ctx, getState());
+		enterRule(_localctx, 22, RULE_degree);
+		try {
+			setState(171);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(167);
+				match(T__17);
+				setState(168);
+				polynomial();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(169);
+				match(T__17);
+				setState(170);
+				monomial();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class EqualpolynomialContext extends ParserRuleContext {
+		public List<PolynomialContext> polynomial() {
+			return getRuleContexts(PolynomialContext.class);
+		}
+		public PolynomialContext polynomial(int i) {
+			return getRuleContext(PolynomialContext.class,i);
+		}
+		public EqualpolynomialContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_equalpolynomial; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).enterEqualpolynomial(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof polyListener ) ((polyListener)listener).exitEqualpolynomial(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof polyVisitor ) return ((polyVisitor<? extends T>)visitor).visitEqualpolynomial(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final EqualpolynomialContext equalpolynomial() throws RecognitionException {
+		EqualpolynomialContext _localctx = new EqualpolynomialContext(_ctx, getState());
+		enterRule(_localctx, 24, RULE_equalpolynomial);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(173);
+			polynomial();
+			setState(174);
+			match(T__18);
+			setState(175);
 			polynomial();
 			}
 		}
@@ -632,35 +1135,35 @@ public class polyParser extends Parser {
 
 	public final MonomialContext monomial() throws RecognitionException {
 		MonomialContext _localctx = new MonomialContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_monomial);
+		enterRule(_localctx, 26, RULE_monomial);
 		int _la;
 		try {
-			setState(129);
+			setState(186);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(120);
+				setState(177);
 				integer();
-				setState(122);
+				setState(179);
 				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+				switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 				case 1:
 					{
-					setState(121);
+					setState(178);
 					match(CHARACTER);
 					}
 					break;
 				}
-				setState(126);
+				setState(183);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if (_la==T__13) {
+				if (_la==T__19) {
 					{
-					setState(124);
-					match(T__13);
-					setState(125);
+					setState(181);
+					match(T__19);
+					setState(182);
 					integer();
 					}
 				}
@@ -670,7 +1173,7 @@ public class polyParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(128);
+				setState(185);
 				integer();
 				}
 				break;
@@ -721,43 +1224,43 @@ public class polyParser extends Parser {
 
 	public final PolynomialContext polynomial() throws RecognitionException {
 		PolynomialContext _localctx = new PolynomialContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_polynomial);
+		enterRule(_localctx, 28, RULE_polynomial);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(131);
-			match(T__14);
-			setState(133);
+			setState(188);
+			match(T__20);
+			setState(190);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__11 || _la==T__12) {
 				{
-				setState(132);
+				setState(189);
 				sign();
 				}
 			}
 
-			setState(135);
+			setState(192);
 			monomial();
-			setState(139); 
+			setState(196); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(136);
+				setState(193);
 				sign();
-				setState(137);
+				setState(194);
 				monomial();
 				}
 				}
-				setState(141); 
+				setState(198); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__11 || _la==T__12 );
-			setState(143);
-			match(T__14);
+			setState(200);
+			match(T__20);
 			}
 		}
 		catch (RecognitionException re) {
@@ -796,16 +1299,16 @@ public class polyParser extends Parser {
 
 	public final StringContext string() throws RecognitionException {
 		StringContext _localctx = new StringContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_string);
+		enterRule(_localctx, 30, RULE_string);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(145);
-			match(T__15);
-			setState(146);
+			setState(202);
+			match(T__21);
+			setState(203);
 			exp();
-			setState(147);
-			match(T__15);
+			setState(204);
+			match(T__21);
 			}
 		}
 		catch (RecognitionException re) {
@@ -847,26 +1350,26 @@ public class polyParser extends Parser {
 
 	public final FactorContext factor() throws RecognitionException {
 		FactorContext _localctx = new FactorContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_factor);
+		enterRule(_localctx, 32, RULE_factor);
 		try {
-			setState(154);
+			setState(211);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__9:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(149);
+				setState(206);
 				match(T__9);
-				setState(150);
+				setState(207);
 				exp();
-				setState(151);
+				setState(208);
 				match(T__10);
 				}
 				break;
 			case CHARACTER:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(153);
+				setState(210);
 				id();
 				}
 				break;
@@ -913,22 +1416,22 @@ public class polyParser extends Parser {
 
 	public final ExpListContext expList() throws RecognitionException {
 		ExpListContext _localctx = new ExpListContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_expList);
+		enterRule(_localctx, 34, RULE_expList);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(159);
+			setState(216);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__3) | (1L << T__6) | (1L << T__7) | (1L << T__9) | (1L << T__11) | (1L << T__12) | (1L << T__14) | (1L << T__15) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << WS) | (1L << CHARACTER) | (1L << DIGIT))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__3) | (1L << T__6) | (1L << T__7) | (1L << T__9) | (1L << T__11) | (1L << T__12) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__20) | (1L << T__21) | (1L << T__25) | (1L << T__26) | (1L << T__27) | (1L << WS) | (1L << CHARACTER) | (1L << DIGIT))) != 0)) {
 				{
 				{
-				setState(156);
+				setState(213);
 				propExpList();
 				}
 				}
-				setState(161);
+				setState(218);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -973,26 +1476,26 @@ public class polyParser extends Parser {
 
 	public final PropExpListContext propExpList() throws RecognitionException {
 		PropExpListContext _localctx = new PropExpListContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_propExpList);
+		enterRule(_localctx, 36, RULE_propExpList);
 		try {
-			setState(167);
+			setState(224);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(162);
+				setState(219);
 				exp();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(163);
+				setState(220);
 				exp();
-				setState(164);
-				match(T__16);
-				setState(165);
+				setState(221);
+				match(T__22);
+				setState(222);
 				propExpList();
 				}
 				break;
@@ -1037,22 +1540,22 @@ public class polyParser extends Parser {
 
 	public final IdListContext idList() throws RecognitionException {
 		IdListContext _localctx = new IdListContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_idList);
+		enterRule(_localctx, 38, RULE_idList);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(172);
+			setState(229);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==CHARACTER) {
 				{
 				{
-				setState(169);
+				setState(226);
 				propIdList();
 				}
 				}
-				setState(174);
+				setState(231);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1097,26 +1600,26 @@ public class polyParser extends Parser {
 
 	public final PropIdListContext propIdList() throws RecognitionException {
 		PropIdListContext _localctx = new PropIdListContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_propIdList);
+		enterRule(_localctx, 40, RULE_propIdList);
 		try {
-			setState(180);
+			setState(237);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(175);
+				setState(232);
 				id();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(176);
+				setState(233);
 				id();
-				setState(177);
-				match(T__16);
-				setState(178);
+				setState(234);
+				match(T__22);
+				setState(235);
 				propIdList();
 				}
 				break;
@@ -1161,18 +1664,18 @@ public class polyParser extends Parser {
 
 	public final DefContext def() throws RecognitionException {
 		DefContext _localctx = new DefContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_def);
+		enterRule(_localctx, 42, RULE_def);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(182);
+			setState(239);
 			id();
-			setState(183);
-			match(T__17);
-			setState(184);
+			setState(240);
+			match(T__23);
+			setState(241);
 			exp();
-			setState(185);
-			match(T__18);
+			setState(242);
+			match(T__24);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1209,11 +1712,11 @@ public class polyParser extends Parser {
 
 	public final EmptyContext empty() throws RecognitionException {
 		EmptyContext _localctx = new EmptyContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_empty);
+		enterRule(_localctx, 44, RULE_empty);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(187);
+			setState(244);
 			match(WS);
 			}
 		}
@@ -1250,14 +1753,14 @@ public class polyParser extends Parser {
 
 	public final BoolContext bool() throws RecognitionException {
 		BoolContext _localctx = new BoolContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_bool);
+		enterRule(_localctx, 46, RULE_bool);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(189);
+			setState(246);
 			_la = _input.LA(1);
-			if ( !(_la==T__19 || _la==T__20) ) {
+			if ( !(_la==T__25 || _la==T__26) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -1303,24 +1806,24 @@ public class polyParser extends Parser {
 
 	public final UnopContext unop() throws RecognitionException {
 		UnopContext _localctx = new UnopContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_unop);
+		enterRule(_localctx, 48, RULE_unop);
 		try {
-			setState(193);
+			setState(250);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__11:
 			case T__12:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(191);
+				setState(248);
 				sign();
 				}
 				break;
-			case T__21:
+			case T__27:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(192);
-				match(T__21);
+				setState(249);
+				match(T__27);
 				}
 				break;
 			default:
@@ -1360,12 +1863,12 @@ public class polyParser extends Parser {
 
 	public final SignContext sign() throws RecognitionException {
 		SignContext _localctx = new SignContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_sign);
+		enterRule(_localctx, 50, RULE_sign);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(195);
+			setState(252);
 			_la = _input.LA(1);
 			if ( !(_la==T__11 || _la==T__12) ) {
 			_errHandler.recoverInline(this);
@@ -1413,87 +1916,87 @@ public class polyParser extends Parser {
 
 	public final BinopContext binop() throws RecognitionException {
 		BinopContext _localctx = new BinopContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_binop);
+		enterRule(_localctx, 52, RULE_binop);
 		try {
-			setState(208);
+			setState(265);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__11:
 			case T__12:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(197);
+				setState(254);
 				sign();
 				}
 				break;
-			case T__22:
+			case T__13:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(198);
-				match(T__22);
-				}
-				break;
-			case T__23:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(199);
-				match(T__23);
-				}
-				break;
-			case T__24:
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(200);
-				match(T__24);
-				}
-				break;
-			case T__25:
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(201);
-				match(T__25);
-				}
-				break;
-			case T__26:
-				enterOuterAlt(_localctx, 6);
-				{
-				setState(202);
-				match(T__26);
-				}
-				break;
-			case T__27:
-				enterOuterAlt(_localctx, 7);
-				{
-				setState(203);
-				match(T__27);
+				setState(255);
+				match(T__13);
 				}
 				break;
 			case T__28:
-				enterOuterAlt(_localctx, 8);
+				enterOuterAlt(_localctx, 3);
 				{
-				setState(204);
+				setState(256);
 				match(T__28);
 				}
 				break;
-			case T__29:
-				enterOuterAlt(_localctx, 9);
+			case T__18:
+				enterOuterAlt(_localctx, 4);
 				{
-				setState(205);
+				setState(257);
+				match(T__18);
+				}
+				break;
+			case T__29:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(258);
 				match(T__29);
 				}
 				break;
 			case T__30:
-				enterOuterAlt(_localctx, 10);
+				enterOuterAlt(_localctx, 6);
 				{
-				setState(206);
+				setState(259);
 				match(T__30);
 				}
 				break;
 			case T__31:
+				enterOuterAlt(_localctx, 7);
+				{
+				setState(260);
+				match(T__31);
+				}
+				break;
+			case T__32:
+				enterOuterAlt(_localctx, 8);
+				{
+				setState(261);
+				match(T__32);
+				}
+				break;
+			case T__33:
+				enterOuterAlt(_localctx, 9);
+				{
+				setState(262);
+				match(T__33);
+				}
+				break;
+			case T__34:
+				enterOuterAlt(_localctx, 10);
+				{
+				setState(263);
+				match(T__34);
+				}
+				break;
+			case T__35:
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(207);
-				match(T__31);
+				setState(264);
+				match(T__35);
 				}
 				break;
 			default:
@@ -1541,22 +2044,22 @@ public class polyParser extends Parser {
 
 	public final IdContext id() throws RecognitionException {
 		IdContext _localctx = new IdContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_id);
+		enterRule(_localctx, 54, RULE_id);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(210);
+			setState(267);
 			match(CHARACTER);
-			setState(214);
+			setState(271);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,17,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,18,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(211);
+					setState(268);
 					_la = _input.LA(1);
 					if ( !(_la==CHARACTER || _la==DIGIT) ) {
 					_errHandler.recoverInline(this);
@@ -1569,9 +2072,9 @@ public class polyParser extends Parser {
 					}
 					} 
 				}
-				setState(216);
+				setState(273);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,17,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,18,_ctx);
 			}
 			}
 		}
@@ -1612,12 +2115,12 @@ public class polyParser extends Parser {
 
 	public final IntegerContext integer() throws RecognitionException {
 		IntegerContext _localctx = new IntegerContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_integer);
+		enterRule(_localctx, 56, RULE_integer);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(218); 
+			setState(275); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -1625,7 +2128,7 @@ public class polyParser extends Parser {
 				case 1:
 					{
 					{
-					setState(217);
+					setState(274);
 					match(DIGIT);
 					}
 					}
@@ -1633,9 +2136,9 @@ public class polyParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(220); 
+				setState(277); 
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,18,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,19,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
@@ -1651,79 +2154,102 @@ public class polyParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\39\u00e1\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3=\u011a\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
-		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\3\2\3\2\3\2\3\2\7\2\61\n\2\f"+
-		"\2\16\2\64\13\2\3\2\3\2\3\3\3\3\3\3\3\3\7\3<\n\3\f\3\16\3?\13\3\3\3\3"+
+		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
+		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\3\2\3\2\3\2\3\2\7\2"+
+		"A\n\2\f\2\16\2D\13\2\3\2\3\2\3\3\3\3\3\3\3\3\7\3L\n\3\f\3\16\3O\13\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\3\3\3\3\3\3\3\3\3\3\5\3Z\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\7\4"+
-		"d\n\4\f\4\16\4g\13\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4q\n\4\3\5\3\5"+
-		"\3\5\3\5\3\6\3\6\3\6\3\6\3\7\3\7\5\7}\n\7\3\7\3\7\5\7\u0081\n\7\3\7\5"+
-		"\7\u0084\n\7\3\b\3\b\5\b\u0088\n\b\3\b\3\b\3\b\3\b\6\b\u008e\n\b\r\b\16"+
-		"\b\u008f\3\b\3\b\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\5\n\u009d\n\n\3\13"+
-		"\7\13\u00a0\n\13\f\13\16\13\u00a3\13\13\3\f\3\f\3\f\3\f\3\f\5\f\u00aa"+
-		"\n\f\3\r\7\r\u00ad\n\r\f\r\16\r\u00b0\13\r\3\16\3\16\3\16\3\16\3\16\5"+
-		"\16\u00b7\n\16\3\17\3\17\3\17\3\17\3\17\3\20\3\20\3\21\3\21\3\22\3\22"+
-		"\5\22\u00c4\n\22\3\23\3\23\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
-		"\3\24\3\24\5\24\u00d3\n\24\3\25\3\25\7\25\u00d7\n\25\f\25\16\25\u00da"+
-		"\13\25\3\26\6\26\u00dd\n\26\r\26\16\26\u00de\3\26\2\2\27\2\4\6\b\n\f\16"+
-		"\20\22\24\26\30\32\34\36 \"$&(*\2\5\3\2\26\27\3\2\16\17\3\2\66\67\2\u00f2"+
-		"\2,\3\2\2\2\4Y\3\2\2\2\6p\3\2\2\2\br\3\2\2\2\nv\3\2\2\2\f\u0083\3\2\2"+
-		"\2\16\u0085\3\2\2\2\20\u0093\3\2\2\2\22\u009c\3\2\2\2\24\u00a1\3\2\2\2"+
-		"\26\u00a9\3\2\2\2\30\u00ae\3\2\2\2\32\u00b6\3\2\2\2\34\u00b8\3\2\2\2\36"+
-		"\u00bd\3\2\2\2 \u00bf\3\2\2\2\"\u00c3\3\2\2\2$\u00c5\3\2\2\2&\u00d2\3"+
-		"\2\2\2(\u00d4\3\2\2\2*\u00dc\3\2\2\2,-\7\3\2\2-.\5(\25\2.\62\7\4\2\2/"+
-		"\61\5\4\3\2\60/\3\2\2\2\61\64\3\2\2\2\62\60\3\2\2\2\62\63\3\2\2\2\63\65"+
-		"\3\2\2\2\64\62\3\2\2\2\65\66\7\5\2\2\66\3\3\2\2\2\67=\5\6\4\289\5&\24"+
-		"\29:\5\4\3\2:<\3\2\2\2;8\3\2\2\2<?\3\2\2\2=;\3\2\2\2=>\3\2\2\2>Z\3\2\2"+
-		"\2?=\3\2\2\2@A\7\6\2\2AB\5\4\3\2BC\7\7\2\2CD\5\4\3\2DZ\3\2\2\2EF\7\6\2"+
-		"\2FG\5\4\3\2GH\7\7\2\2HI\5\4\3\2IJ\7\b\2\2JK\7\7\2\2KL\5\4\3\2LZ\3\2\2"+
-		"\2MN\7\t\2\2NO\5\4\3\2OP\7\7\2\2PQ\5\4\3\2QZ\3\2\2\2RS\7\n\2\2ST\5(\25"+
-		"\2TU\7\13\2\2UV\5\6\4\2VW\7\7\2\2WX\5\4\3\2XZ\3\2\2\2Y\67\3\2\2\2Y@\3"+
-		"\2\2\2YE\3\2\2\2YM\3\2\2\2YR\3\2\2\2Z\5\3\2\2\2[\\\5\"\22\2\\]\5\6\4\2"+
-		"]q\3\2\2\2^e\5\22\n\2_`\7\f\2\2`a\5\24\13\2ab\7\r\2\2bd\3\2\2\2c_\3\2"+
-		"\2\2dg\3\2\2\2ec\3\2\2\2ef\3\2\2\2fq\3\2\2\2ge\3\2\2\2hq\5\36\20\2iq\5"+
-		"*\26\2jq\5 \21\2kq\5\20\t\2lq\5\b\5\2mq\5\n\6\2nq\5\16\b\2oq\5\f\7\2p"+
-		"[\3\2\2\2p^\3\2\2\2ph\3\2\2\2pi\3\2\2\2pj\3\2\2\2pk\3\2\2\2pl\3\2\2\2"+
-		"pm\3\2\2\2pn\3\2\2\2po\3\2\2\2q\7\3\2\2\2rs\5\16\b\2st\7\16\2\2tu\5\16"+
-		"\b\2u\t\3\2\2\2vw\5\16\b\2wx\7\17\2\2xy\5\16\b\2y\13\3\2\2\2z|\5*\26\2"+
-		"{}\7\66\2\2|{\3\2\2\2|}\3\2\2\2}\u0080\3\2\2\2~\177\7\20\2\2\177\u0081"+
-		"\5*\26\2\u0080~\3\2\2\2\u0080\u0081\3\2\2\2\u0081\u0084\3\2\2\2\u0082"+
-		"\u0084\5*\26\2\u0083z\3\2\2\2\u0083\u0082\3\2\2\2\u0084\r\3\2\2\2\u0085"+
-		"\u0087\7\21\2\2\u0086\u0088\5$\23\2\u0087\u0086\3\2\2\2\u0087\u0088\3"+
-		"\2\2\2\u0088\u0089\3\2\2\2\u0089\u008d\5\f\7\2\u008a\u008b\5$\23\2\u008b"+
-		"\u008c\5\f\7\2\u008c\u008e\3\2\2\2\u008d\u008a\3\2\2\2\u008e\u008f\3\2"+
-		"\2\2\u008f\u008d\3\2\2\2\u008f\u0090\3\2\2\2\u0090\u0091\3\2\2\2\u0091"+
-		"\u0092\7\21\2\2\u0092\17\3\2\2\2\u0093\u0094\7\22\2\2\u0094\u0095\5\4"+
-		"\3\2\u0095\u0096\7\22\2\2\u0096\21\3\2\2\2\u0097\u0098\7\f\2\2\u0098\u0099"+
-		"\5\4\3\2\u0099\u009a\7\r\2\2\u009a\u009d\3\2\2\2\u009b\u009d\5(\25\2\u009c"+
-		"\u0097\3\2\2\2\u009c\u009b\3\2\2\2\u009d\23\3\2\2\2\u009e\u00a0\5\26\f"+
-		"\2\u009f\u009e\3\2\2\2\u00a0\u00a3\3\2\2\2\u00a1\u009f\3\2\2\2\u00a1\u00a2"+
-		"\3\2\2\2\u00a2\25\3\2\2\2\u00a3\u00a1\3\2\2\2\u00a4\u00aa\5\4\3\2\u00a5"+
-		"\u00a6\5\4\3\2\u00a6\u00a7\7\23\2\2\u00a7\u00a8\5\26\f\2\u00a8\u00aa\3"+
-		"\2\2\2\u00a9\u00a4\3\2\2\2\u00a9\u00a5\3\2\2\2\u00aa\27\3\2\2\2\u00ab"+
-		"\u00ad\5\32\16\2\u00ac\u00ab\3\2\2\2\u00ad\u00b0\3\2\2\2\u00ae\u00ac\3"+
-		"\2\2\2\u00ae\u00af\3\2\2\2\u00af\31\3\2\2\2\u00b0\u00ae\3\2\2\2\u00b1"+
-		"\u00b7\5(\25\2\u00b2\u00b3\5(\25\2\u00b3\u00b4\7\23\2\2\u00b4\u00b5\5"+
-		"\32\16\2\u00b5\u00b7\3\2\2\2\u00b6\u00b1\3\2\2\2\u00b6\u00b2\3\2\2\2\u00b7"+
-		"\33\3\2\2\2\u00b8\u00b9\5(\25\2\u00b9\u00ba\7\24\2\2\u00ba\u00bb\5\4\3"+
-		"\2\u00bb\u00bc\7\25\2\2\u00bc\35\3\2\2\2\u00bd\u00be\7\65\2\2\u00be\37"+
-		"\3\2\2\2\u00bf\u00c0\t\2\2\2\u00c0!\3\2\2\2\u00c1\u00c4\5$\23\2\u00c2"+
-		"\u00c4\7\30\2\2\u00c3\u00c1\3\2\2\2\u00c3\u00c2\3\2\2\2\u00c4#\3\2\2\2"+
-		"\u00c5\u00c6\t\3\2\2\u00c6%\3\2\2\2\u00c7\u00d3\5$\23\2\u00c8\u00d3\7"+
-		"\31\2\2\u00c9\u00d3\7\32\2\2\u00ca\u00d3\7\33\2\2\u00cb\u00d3\7\34\2\2"+
-		"\u00cc\u00d3\7\35\2\2\u00cd\u00d3\7\36\2\2\u00ce\u00d3\7\37\2\2\u00cf"+
-		"\u00d3\7 \2\2\u00d0\u00d3\7!\2\2\u00d1\u00d3\7\"\2\2\u00d2\u00c7\3\2\2"+
-		"\2\u00d2\u00c8\3\2\2\2\u00d2\u00c9\3\2\2\2\u00d2\u00ca\3\2\2\2\u00d2\u00cb"+
-		"\3\2\2\2\u00d2\u00cc\3\2\2\2\u00d2\u00cd\3\2\2\2\u00d2\u00ce\3\2\2\2\u00d2"+
-		"\u00cf\3\2\2\2\u00d2\u00d0\3\2\2\2\u00d2\u00d1\3\2\2\2\u00d3\'\3\2\2\2"+
-		"\u00d4\u00d8\7\66\2\2\u00d5\u00d7\t\4\2\2\u00d6\u00d5\3\2\2\2\u00d7\u00da"+
-		"\3\2\2\2\u00d8\u00d6\3\2\2\2\u00d8\u00d9\3\2\2\2\u00d9)\3\2\2\2\u00da"+
-		"\u00d8\3\2\2\2\u00db\u00dd\7\67\2\2\u00dc\u00db\3\2\2\2\u00dd\u00de\3"+
-		"\2\2\2\u00de\u00dc\3\2\2\2\u00de\u00df\3\2\2\2\u00df+\3\2\2\2\25\62=Y"+
-		"ep|\u0080\u0083\u0087\u008f\u009c\u00a1\u00a9\u00ae\u00b6\u00c3\u00d2"+
-		"\u00d8\u00de";
+		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3j\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4"+
+		"\7\4t\n\4\f\4\16\4w\13\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3"+
+		"\4\3\4\3\4\3\4\3\4\5\4\u0089\n\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\7\3"+
+		"\7\3\7\3\7\3\b\3\b\3\b\3\b\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\13\3\13\3"+
+		"\13\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\5\r\u00ae\n\r\3\16\3\16\3\16\3\16"+
+		"\3\17\3\17\5\17\u00b6\n\17\3\17\3\17\5\17\u00ba\n\17\3\17\5\17\u00bd\n"+
+		"\17\3\20\3\20\5\20\u00c1\n\20\3\20\3\20\3\20\3\20\6\20\u00c7\n\20\r\20"+
+		"\16\20\u00c8\3\20\3\20\3\21\3\21\3\21\3\21\3\22\3\22\3\22\3\22\3\22\5"+
+		"\22\u00d6\n\22\3\23\7\23\u00d9\n\23\f\23\16\23\u00dc\13\23\3\24\3\24\3"+
+		"\24\3\24\3\24\5\24\u00e3\n\24\3\25\7\25\u00e6\n\25\f\25\16\25\u00e9\13"+
+		"\25\3\26\3\26\3\26\3\26\3\26\5\26\u00f0\n\26\3\27\3\27\3\27\3\27\3\27"+
+		"\3\30\3\30\3\31\3\31\3\32\3\32\5\32\u00fd\n\32\3\33\3\33\3\34\3\34\3\34"+
+		"\3\34\3\34\3\34\3\34\3\34\3\34\3\34\3\34\5\34\u010c\n\34\3\35\3\35\7\35"+
+		"\u0110\n\35\f\35\16\35\u0113\13\35\3\36\6\36\u0116\n\36\r\36\16\36\u0117"+
+		"\3\36\2\2\37\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64"+
+		"\668:\2\5\3\2\34\35\3\2\16\17\3\2:;\2\u012c\2<\3\2\2\2\4i\3\2\2\2\6\u0088"+
+		"\3\2\2\2\b\u008a\3\2\2\2\n\u008e\3\2\2\2\f\u0092\3\2\2\2\16\u0096\3\2"+
+		"\2\2\20\u009a\3\2\2\2\22\u009d\3\2\2\2\24\u00a2\3\2\2\2\26\u00a5\3\2\2"+
+		"\2\30\u00ad\3\2\2\2\32\u00af\3\2\2\2\34\u00bc\3\2\2\2\36\u00be\3\2\2\2"+
+		" \u00cc\3\2\2\2\"\u00d5\3\2\2\2$\u00da\3\2\2\2&\u00e2\3\2\2\2(\u00e7\3"+
+		"\2\2\2*\u00ef\3\2\2\2,\u00f1\3\2\2\2.\u00f6\3\2\2\2\60\u00f8\3\2\2\2\62"+
+		"\u00fc\3\2\2\2\64\u00fe\3\2\2\2\66\u010b\3\2\2\28\u010d\3\2\2\2:\u0115"+
+		"\3\2\2\2<=\7\3\2\2=>\58\35\2>B\7\4\2\2?A\5\4\3\2@?\3\2\2\2AD\3\2\2\2B"+
+		"@\3\2\2\2BC\3\2\2\2CE\3\2\2\2DB\3\2\2\2EF\7\5\2\2F\3\3\2\2\2GM\5\6\4\2"+
+		"HI\5\66\34\2IJ\5\4\3\2JL\3\2\2\2KH\3\2\2\2LO\3\2\2\2MK\3\2\2\2MN\3\2\2"+
+		"\2Nj\3\2\2\2OM\3\2\2\2PQ\7\6\2\2QR\5\4\3\2RS\7\7\2\2ST\5\4\3\2Tj\3\2\2"+
+		"\2UV\7\6\2\2VW\5\4\3\2WX\7\7\2\2XY\5\4\3\2YZ\7\b\2\2Z[\7\7\2\2[\\\5\4"+
+		"\3\2\\j\3\2\2\2]^\7\t\2\2^_\5\4\3\2_`\7\7\2\2`a\5\4\3\2aj\3\2\2\2bc\7"+
+		"\n\2\2cd\58\35\2de\7\13\2\2ef\5\6\4\2fg\7\7\2\2gh\5\4\3\2hj\3\2\2\2iG"+
+		"\3\2\2\2iP\3\2\2\2iU\3\2\2\2i]\3\2\2\2ib\3\2\2\2j\5\3\2\2\2kl\5\62\32"+
+		"\2lm\5\6\4\2m\u0089\3\2\2\2nu\5\"\22\2op\7\f\2\2pq\5$\23\2qr\7\r\2\2r"+
+		"t\3\2\2\2so\3\2\2\2tw\3\2\2\2us\3\2\2\2uv\3\2\2\2v\u0089\3\2\2\2wu\3\2"+
+		"\2\2x\u0089\5.\30\2y\u0089\5:\36\2z\u0089\5\60\31\2{\u0089\5 \21\2|\u0089"+
+		"\5\b\5\2}\u0089\5\n\6\2~\u0089\5\f\7\2\177\u0089\5\16\b\2\u0080\u0089"+
+		"\5\20\t\2\u0081\u0089\5\22\n\2\u0082\u0089\5\24\13\2\u0083\u0089\5\26"+
+		"\f\2\u0084\u0089\5\30\r\2\u0085\u0089\5\32\16\2\u0086\u0089\5\36\20\2"+
+		"\u0087\u0089\5\34\17\2\u0088k\3\2\2\2\u0088n\3\2\2\2\u0088x\3\2\2\2\u0088"+
+		"y\3\2\2\2\u0088z\3\2\2\2\u0088{\3\2\2\2\u0088|\3\2\2\2\u0088}\3\2\2\2"+
+		"\u0088~\3\2\2\2\u0088\177\3\2\2\2\u0088\u0080\3\2\2\2\u0088\u0081\3\2"+
+		"\2\2\u0088\u0082\3\2\2\2\u0088\u0083\3\2\2\2\u0088\u0084\3\2\2\2\u0088"+
+		"\u0085\3\2\2\2\u0088\u0086\3\2\2\2\u0088\u0087\3\2\2\2\u0089\7\3\2\2\2"+
+		"\u008a\u008b\5\36\20\2\u008b\u008c\7\16\2\2\u008c\u008d\5\36\20\2\u008d"+
+		"\t\3\2\2\2\u008e\u008f\5\36\20\2\u008f\u0090\7\17\2\2\u0090\u0091\5\36"+
+		"\20\2\u0091\13\3\2\2\2\u0092\u0093\5\36\20\2\u0093\u0094\7\20\2\2\u0094"+
+		"\u0095\5\36\20\2\u0095\r\3\2\2\2\u0096\u0097\5\36\20\2\u0097\u0098\7\20"+
+		"\2\2\u0098\u0099\5:\36\2\u0099\17\3\2\2\2\u009a\u009b\7\21\2\2\u009b\u009c"+
+		"\5\36\20\2\u009c\21\3\2\2\2\u009d\u009e\7\22\2\2\u009e\u009f\5\36\20\2"+
+		"\u009f\u00a0\5:\36\2\u00a0\u00a1\5:\36\2\u00a1\23\3\2\2\2\u00a2\u00a3"+
+		"\7\22\2\2\u00a3\u00a4\5\36\20\2\u00a4\25\3\2\2\2\u00a5\u00a6\7\23\2\2"+
+		"\u00a6\u00a7\5\36\20\2\u00a7\u00a8\5:\36\2\u00a8\27\3\2\2\2\u00a9\u00aa"+
+		"\7\24\2\2\u00aa\u00ae\5\36\20\2\u00ab\u00ac\7\24\2\2\u00ac\u00ae\5\34"+
+		"\17\2\u00ad\u00a9\3\2\2\2\u00ad\u00ab\3\2\2\2\u00ae\31\3\2\2\2\u00af\u00b0"+
+		"\5\36\20\2\u00b0\u00b1\7\25\2\2\u00b1\u00b2\5\36\20\2\u00b2\33\3\2\2\2"+
+		"\u00b3\u00b5\5:\36\2\u00b4\u00b6\7:\2\2\u00b5\u00b4\3\2\2\2\u00b5\u00b6"+
+		"\3\2\2\2\u00b6\u00b9\3\2\2\2\u00b7\u00b8\7\26\2\2\u00b8\u00ba\5:\36\2"+
+		"\u00b9\u00b7\3\2\2\2\u00b9\u00ba\3\2\2\2\u00ba\u00bd\3\2\2\2\u00bb\u00bd"+
+		"\5:\36\2\u00bc\u00b3\3\2\2\2\u00bc\u00bb\3\2\2\2\u00bd\35\3\2\2\2\u00be"+
+		"\u00c0\7\27\2\2\u00bf\u00c1\5\64\33\2\u00c0\u00bf\3\2\2\2\u00c0\u00c1"+
+		"\3\2\2\2\u00c1\u00c2\3\2\2\2\u00c2\u00c6\5\34\17\2\u00c3\u00c4\5\64\33"+
+		"\2\u00c4\u00c5\5\34\17\2\u00c5\u00c7\3\2\2\2\u00c6\u00c3\3\2\2\2\u00c7"+
+		"\u00c8\3\2\2\2\u00c8\u00c6\3\2\2\2\u00c8\u00c9\3\2\2\2\u00c9\u00ca\3\2"+
+		"\2\2\u00ca\u00cb\7\27\2\2\u00cb\37\3\2\2\2\u00cc\u00cd\7\30\2\2\u00cd"+
+		"\u00ce\5\4\3\2\u00ce\u00cf\7\30\2\2\u00cf!\3\2\2\2\u00d0\u00d1\7\f\2\2"+
+		"\u00d1\u00d2\5\4\3\2\u00d2\u00d3\7\r\2\2\u00d3\u00d6\3\2\2\2\u00d4\u00d6"+
+		"\58\35\2\u00d5\u00d0\3\2\2\2\u00d5\u00d4\3\2\2\2\u00d6#\3\2\2\2\u00d7"+
+		"\u00d9\5&\24\2\u00d8\u00d7\3\2\2\2\u00d9\u00dc\3\2\2\2\u00da\u00d8\3\2"+
+		"\2\2\u00da\u00db\3\2\2\2\u00db%\3\2\2\2\u00dc\u00da\3\2\2\2\u00dd\u00e3"+
+		"\5\4\3\2\u00de\u00df\5\4\3\2\u00df\u00e0\7\31\2\2\u00e0\u00e1\5&\24\2"+
+		"\u00e1\u00e3\3\2\2\2\u00e2\u00dd\3\2\2\2\u00e2\u00de\3\2\2\2\u00e3\'\3"+
+		"\2\2\2\u00e4\u00e6\5*\26\2\u00e5\u00e4\3\2\2\2\u00e6\u00e9\3\2\2\2\u00e7"+
+		"\u00e5\3\2\2\2\u00e7\u00e8\3\2\2\2\u00e8)\3\2\2\2\u00e9\u00e7\3\2\2\2"+
+		"\u00ea\u00f0\58\35\2\u00eb\u00ec\58\35\2\u00ec\u00ed\7\31\2\2\u00ed\u00ee"+
+		"\5*\26\2\u00ee\u00f0\3\2\2\2\u00ef\u00ea\3\2\2\2\u00ef\u00eb\3\2\2\2\u00f0"+
+		"+\3\2\2\2\u00f1\u00f2\58\35\2\u00f2\u00f3\7\32\2\2\u00f3\u00f4\5\4\3\2"+
+		"\u00f4\u00f5\7\33\2\2\u00f5-\3\2\2\2\u00f6\u00f7\79\2\2\u00f7/\3\2\2\2"+
+		"\u00f8\u00f9\t\2\2\2\u00f9\61\3\2\2\2\u00fa\u00fd\5\64\33\2\u00fb\u00fd"+
+		"\7\36\2\2\u00fc\u00fa\3\2\2\2\u00fc\u00fb\3\2\2\2\u00fd\63\3\2\2\2\u00fe"+
+		"\u00ff\t\3\2\2\u00ff\65\3\2\2\2\u0100\u010c\5\64\33\2\u0101\u010c\7\20"+
+		"\2\2\u0102\u010c\7\37\2\2\u0103\u010c\7\25\2\2\u0104\u010c\7 \2\2\u0105"+
+		"\u010c\7!\2\2\u0106\u010c\7\"\2\2\u0107\u010c\7#\2\2\u0108\u010c\7$\2"+
+		"\2\u0109\u010c\7%\2\2\u010a\u010c\7&\2\2\u010b\u0100\3\2\2\2\u010b\u0101"+
+		"\3\2\2\2\u010b\u0102\3\2\2\2\u010b\u0103\3\2\2\2\u010b\u0104\3\2\2\2\u010b"+
+		"\u0105\3\2\2\2\u010b\u0106\3\2\2\2\u010b\u0107\3\2\2\2\u010b\u0108\3\2"+
+		"\2\2\u010b\u0109\3\2\2\2\u010b\u010a\3\2\2\2\u010c\67\3\2\2\2\u010d\u0111"+
+		"\7:\2\2\u010e\u0110\t\4\2\2\u010f\u010e\3\2\2\2\u0110\u0113\3\2\2\2\u0111"+
+		"\u010f\3\2\2\2\u0111\u0112\3\2\2\2\u01129\3\2\2\2\u0113\u0111\3\2\2\2"+
+		"\u0114\u0116\7;\2\2\u0115\u0114\3\2\2\2\u0116\u0117\3\2\2\2\u0117\u0115"+
+		"\3\2\2\2\u0117\u0118\3\2\2\2\u0118;\3\2\2\2\26BMiu\u0088\u00ad\u00b5\u00b9"+
+		"\u00bc\u00c0\u00c8\u00d5\u00da\u00e2\u00e7\u00ef\u00fc\u010b\u0111\u0117";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

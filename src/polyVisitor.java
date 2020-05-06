@@ -1,4 +1,4 @@
-// Generated from C:/Users/antho/Desktop/polynomial/grammar\poly.g4 by ANTLR 4.8
+// Generated from C:/Users/User/git/PLCalculator/grammar\poly.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -39,6 +39,54 @@ public interface polyVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSubpolynomial(polyParser.SubpolynomialContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link polyParser#mulpolynomial}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMulpolynomial(polyParser.MulpolynomialContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link polyParser#mulcpolynomial}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMulcpolynomial(polyParser.MulcpolynomialContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link polyParser#derpolynomial}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDerpolynomial(polyParser.DerpolynomialContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link polyParser#defintegralpolynomial}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefintegralpolynomial(polyParser.DefintegralpolynomialContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link polyParser#integralpolynomial}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIntegralpolynomial(polyParser.IntegralpolynomialContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link polyParser#evalpolynomial}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEvalpolynomial(polyParser.EvalpolynomialContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link polyParser#degree}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDegree(polyParser.DegreeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link polyParser#equalpolynomial}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEqualpolynomial(polyParser.EqualpolynomialContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link polyParser#monomial}.
 	 * @param ctx the parse tree

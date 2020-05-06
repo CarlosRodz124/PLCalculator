@@ -46,6 +46,14 @@ term: unop term
     | string
     | sumpolynomial
     | subpolynomial
+    | mulpolynomial
+    | mulcpolynomial
+    | derpolynomial
+    | defintegralpolynomial
+    | integralpolynomial
+    | evalpolynomial
+    | degree
+    | equalpolynomial
     | polynomial
     | monomial
     ;
@@ -53,6 +61,22 @@ term: unop term
 sumpolynomial:polynomial'+'polynomial;
 
 subpolynomial:polynomial'-'polynomial;
+
+mulpolynomial:polynomial'*'polynomial;
+
+mulcpolynomial:polynomial'*'integer;
+
+derpolynomial: 'der' polynomial;
+
+defintegralpolynomial : 'integral' polynomial integer integer;
+
+integralpolynomial : 'integral' polynomial ;
+
+evalpolynomial : 'eval' polynomial integer;
+
+degree : 'degree' polynomial | 'degree' monomial;
+
+equalpolynomial: polynomial '=' polynomial;
 
 monomial: integer CHARACTER? ( '^' integer)? | integer;
 

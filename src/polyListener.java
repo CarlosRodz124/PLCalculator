@@ -1,4 +1,4 @@
-// Generated from C:/Users/antho/Desktop/polynomial/grammar\poly.g4 by ANTLR 4.8
+// Generated from C:/Users/User/git/PLCalculator/grammar\poly.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -56,6 +56,86 @@ public interface polyListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitSubpolynomial(polyParser.SubpolynomialContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link polyParser#mulpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void enterMulpolynomial(polyParser.MulpolynomialContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link polyParser#mulpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void exitMulpolynomial(polyParser.MulpolynomialContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link polyParser#mulcpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void enterMulcpolynomial(polyParser.MulcpolynomialContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link polyParser#mulcpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void exitMulcpolynomial(polyParser.MulcpolynomialContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link polyParser#derpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void enterDerpolynomial(polyParser.DerpolynomialContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link polyParser#derpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void exitDerpolynomial(polyParser.DerpolynomialContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link polyParser#defintegralpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void enterDefintegralpolynomial(polyParser.DefintegralpolynomialContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link polyParser#defintegralpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void exitDefintegralpolynomial(polyParser.DefintegralpolynomialContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link polyParser#integralpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void enterIntegralpolynomial(polyParser.IntegralpolynomialContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link polyParser#integralpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void exitIntegralpolynomial(polyParser.IntegralpolynomialContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link polyParser#evalpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void enterEvalpolynomial(polyParser.EvalpolynomialContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link polyParser#evalpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void exitEvalpolynomial(polyParser.EvalpolynomialContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link polyParser#degree}.
+	 * @param ctx the parse tree
+	 */
+	void enterDegree(polyParser.DegreeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link polyParser#degree}.
+	 * @param ctx the parse tree
+	 */
+	void exitDegree(polyParser.DegreeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link polyParser#equalpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void enterEqualpolynomial(polyParser.EqualpolynomialContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link polyParser#equalpolynomial}.
+	 * @param ctx the parse tree
+	 */
+	void exitEqualpolynomial(polyParser.EqualpolynomialContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link polyParser#monomial}.
 	 * @param ctx the parse tree
