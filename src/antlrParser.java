@@ -60,6 +60,90 @@ class Myvisitor extends polyBaseVisitor<Object> {
         return visitChildren(ctx);
     }
 
+    @Override public Object visitMulpolynomial(polyParser.MulpolynomialContext ctx) {
+        String[] tokens = ctx.getText().split("\\$");
+        Polynomial P1= new PolynomialImp(tokens[1]);
+        Polynomial P2 = new PolynomialImp(tokens[3]);
+        Polynomial P3 = P1.multiply(P2);
+        System.out.println(P3);
+        System.out.println(tokens[1]);
+        System.out.println(tokens[3]);
+        return visitChildren(ctx);
+    }
+
+    @Override public Object visitMulcpolynomial(polyParser.MulcpolynomialContext ctx) {
+        String[] tokens = ctx.getText().split("\\$");
+        Polynomial P1= new PolynomialImp(tokens[1]);
+        Integer c = new Integer(tokens[3]);
+        Polynomial P3 = P1.multiply(c);
+        System.out.println(P3);
+        System.out.println(tokens[1]);
+        System.out.println(tokens[3]);
+        return visitChildren(ctx);
+    }
+
+    @Override public Object visitDerpolynomial(polyParser.DerpolynomialContext ctx) {
+        String[] tokens = ctx.getText().split("\\$");
+        Polynomial P1= new PolynomialImp(tokens[2]);
+        Polynomial P3 = P1.derivative();
+        System.out.println(P3);
+        System.out.println(tokens[2]);
+        return visitChildren(ctx);
+    }
+
+    @Override public Object visitIntegralpolynomial(polyParser.IntegralpolynomialContext ctx) {
+        String[] tokens = ctx.getText().split("\\$");
+        Polynomial P1= new PolynomialImp(tokens[2]);
+        Polynomial P3 = P1.indefiniteIntegral();
+        System.out.println(P3);
+        System.out.println(tokens[2]);
+        return visitChildren(ctx);
+    }
+
+    @Override public Object visitDefintegralpolynomial(polyParser.DefintegralpolynomialContext ctx) {
+        String[] tokens = ctx.getText().split("\\$");
+        Polynomial P1= new PolynomialImp(tokens[2]);
+        Integer a = new Integer(tokens[3]);
+        Integer b = new Integer(tokens[4]);
+        double P3 = P1.definiteIntegral(a, b);
+        System.out.println(P3);
+        System.out.println(tokens[2]);
+        System.out.println(tokens[3]);
+        System.out.println(tokens[4]);
+        return visitChildren(ctx);
+    }
+
+    @Override public Object visitEvalpolynomial(polyParser.EvalpolynomialContext ctx) {
+        String[] tokens = ctx.getText().split("\\$");
+        Polynomial P1= new PolynomialImp(tokens[2]);
+        Integer x = new Integer(tokens[3]);
+        double P3 = P1.evaluate(x);
+        System.out.println(P3);
+        System.out.println(tokens[2]);
+        System.out.println(tokens[3]);
+        return visitChildren(ctx);
+    }
+
+    @Override public Object visitDegree(polyParser.DegreeContext ctx) {
+        String[] tokens = ctx.getText().split("\\$");
+        Polynomial P1= new PolynomialImp(tokens[2]);
+        double P3 = P1.degree();
+        System.out.println(P3);
+        System.out.println(tokens[2]);
+        return visitChildren(ctx);
+    }
+
+    @Override public Object visitEqualpolynomial(polyParser.EqualpolynomialContext ctx) {
+        String[] tokens = ctx.getText().split("\\$");
+        Polynomial P1= new PolynomialImp(tokens[1]);
+        Polynomial P2 = new PolynomialImp(tokens[3]);
+        boolean P3 = P1.equals(P2);
+        System.out.println(P3);
+        System.out.println(tokens[1]);
+        System.out.println(tokens[3]);
+        return visitChildren(ctx);
+    }
+
     @Override public Object visitTerm(polyParser.TermContext ctx) { return visitChildren(ctx); }
 
     @Override public Object visitMonomial(polyParser.MonomialContext ctx) { return visitChildren(ctx); }
