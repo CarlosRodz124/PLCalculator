@@ -95,7 +95,7 @@ class Myvisitor extends polyBaseVisitor<Object> {
         String[] tokens = ctx.getText().split("\\$");
         Polynomial P1= new PolynomialImp(tokens[1]);
         Polynomial P3 = P1.indefiniteIntegral();
-        System.out.println(P3);
+        System.out.println(P3+ "+c");
         System.out.println(tokens[1]);
         return visitChildren(ctx);
     }

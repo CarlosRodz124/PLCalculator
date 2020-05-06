@@ -261,9 +261,7 @@ public class PolynomialImp extends TermListFactory implements Polynomial {
 			    co=list.get(curr).getCoefficient()*mult;
 				list3.add((new TermImp(co,ex)));
 				curr++;
-				if(curr==list.size()) {
-					list3.add((new TermImp(1.0,0)));
-				}
+
 			}
 		return P3;	
 	}
