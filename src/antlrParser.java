@@ -14,21 +14,21 @@ import java.io.IOException;
 public class antlrParser {
 
     public static void main(String[] args) throws IOException {
-     try {
-         CharStream charStream = CharStreams.fromFileName("inputExamplePoly");
-         polyLexer polylexer = new polyLexer(charStream);
-         CommonTokenStream commonTokenStream = new CommonTokenStream(polylexer);
-         polyParser polyparser = new polyParser(commonTokenStream);
+        try {
+            CharStream charStream = CharStreams.fromFileName("inputExamplePoly");
+            polyLexer polylexer = new polyLexer(charStream);
+            CommonTokenStream commonTokenStream = new CommonTokenStream(polylexer);
+            polyParser polyparser = new polyParser(commonTokenStream);
 
-         ParseTree tree = polyparser.program();
+            ParseTree tree = polyparser.program();
 
-         Myvisitor visitor = new Myvisitor();
-         visitor.visit(tree);
-         System.out.println("done");
-     }
-     catch (IOException e){
-         e.printStackTrace();
-     }
+            Myvisitor visitor = new Myvisitor();
+            visitor.visit(tree);
+            System.out.println("done");
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 }
@@ -74,42 +74,43 @@ class Myvisitor extends polyBaseVisitor<Object> {
     @Override public Object visitMulcpolynomial(polyParser.MulcpolynomialContext ctx) {
         String[] tokens = ctx.getText().split("\\$");
         Polynomial P1= new PolynomialImp(tokens[1]);
-        Integer c = new Integer(tokens[3]);
+        Integer c = new Integer(tokens[2].substring(1));
         Polynomial P3 = P1.multiply(c);
         System.out.println(P3);
         System.out.println(tokens[1]);
-        System.out.println(tokens[3]);
+        System.out.println(tokens[2]);
         return visitChildren(ctx);
     }
 
     @Override public Object visitDerpolynomial(polyParser.DerpolynomialContext ctx) {
         String[] tokens = ctx.getText().split("\\$");
-        Polynomial P1= new PolynomialImp(tokens[2]);
+        Polynomial P1= new PolynomialImp(tokens[1]);
         Polynomial P3 = P1.derivative();
         System.out.println(P3);
-        System.out.println(tokens[2]);
+        System.out.println(tokens[1]);
         return visitChildren(ctx);
     }
 
     @Override public Object visitIntegralpolynomial(polyParser.IntegralpolynomialContext ctx) {
         String[] tokens = ctx.getText().split("\\$");
-        Polynomial P1= new PolynomialImp(tokens[2]);
+        Polynomial P1= new PolynomialImp(tokens[1]);
         Polynomial P3 = P1.indefiniteIntegral();
         System.out.println(P3);
-        System.out.println(tokens[2]);
+        System.out.println(tokens[1]);
         return visitChildren(ctx);
     }
 
     @Override public Object visitDefintegralpolynomial(polyParser.DefintegralpolynomialContext ctx) {
         String[] tokens = ctx.getText().split("\\$");
-        Polynomial P1= new PolynomialImp(tokens[2]);
-        Integer a = new Integer(tokens[3]);
-        Integer b = new Integer(tokens[4]);
+        Polynomial P1= new PolynomialImp(tokens[1]);
+        int commaPos= tokens[2].indexOf(',');
+        Integer a = new Integer(tokens[2].substring(0,commaPos));
+        Integer b = new Integer(tokens[2].substring(commaPos+1));
         double P3 = P1.definiteIntegral(a, b);
         System.out.println(P3);
-        System.out.println(tokens[2]);
-        System.out.println(tokens[3]);
-        System.out.println(tokens[4]);
+        System.out.println(tokens[1]);
+        System.out.println(a);
+        System.out.println(b);
         return visitChildren(ctx);
     }
 
@@ -126,10 +127,10 @@ class Myvisitor extends polyBaseVisitor<Object> {
 
     @Override public Object visitDegree(polyParser.DegreeContext ctx) {
         String[] tokens = ctx.getText().split("\\$");
-        Polynomial P1= new PolynomialImp(tokens[2]);
+        Polynomial P1= new PolynomialImp(tokens[1]);
         double P3 = P1.degree();
         System.out.println(P3);
-        System.out.println(tokens[2]);
+        System.out.println(tokens[1]);
         return visitChildren(ctx);
     }
 

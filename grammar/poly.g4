@@ -68,7 +68,7 @@ mulcpolynomial:polynomial'*'integer;
 
 derpolynomial: 'der' polynomial;
 
-defintegralpolynomial : 'integral' polynomial integer integer;
+defintegralpolynomial : 'integral' polynomial integer ',' integer;
 
 integralpolynomial : 'integral' polynomial ;
 
