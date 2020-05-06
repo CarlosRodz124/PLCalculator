@@ -1,4 +1,4 @@
-package edu.uprm.ece.icom4035.polynomial;
+package polynomial;
 
 public interface Term {
 	/**

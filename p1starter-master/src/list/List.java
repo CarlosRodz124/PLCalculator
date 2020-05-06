@@ -1,4 +1,4 @@
-package edu.uprm.ece.icom4035.list;
+package list;
 
 public interface List<E> extends Iterable<E>{
 	/**

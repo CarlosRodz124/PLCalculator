@@ -1,12 +1,12 @@
-package edu.uprm.ece.icom4035.polynomial.junit;
+package junit;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.uprm.ece.icom4035.polynomial.Polynomial;
-import edu.uprm.ece.icom4035.polynomial.PolynomialImp;
-import edu.uprm.ece.icom4035.polynomial.TermListFactory;
+import polynomial.Polynomial;
+import polynomial.PolynomialImp;
+import polynomial.TermListFactory;
 
 public class Test4 {
 	private static final double EPSILON = 0.0001;

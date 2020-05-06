@@ -1,8 +1,8 @@
-package edu.uprm.ece.icom4035.polynomial;
+package polynomial;
 
 import java.util.Iterator;
 
-import edu.uprm.ece.icom4035.list.List;
+import list.List;
 
 public class PolynomialImp implements Polynomial {
 	private List<Term> list;

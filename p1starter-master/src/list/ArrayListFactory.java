@@ -1,4 +1,4 @@
-package edu.uprm.ece.icom4035.list;
+package list;
 
 public class ArrayListFactory<E> implements ListFactory<E> {
 
