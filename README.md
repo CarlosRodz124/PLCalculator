@@ -8,30 +8,60 @@ The main purpose and focus for __Polynomial Advanced Language (PAL)__ is to faci
 
 ------------------------------------
 
-## Main Functionalities
+## Documentation with examples
 
+- Monomial
+```
+1x^2
+```
 - Polynomial
-
+```
+$1x^2+3x+5$
+```
 - Sum of Polynomials
-
+```
+$1x^2+3x+5$ + $2x^2+6x+3$
+```
 - Subtraction of Polynomials
-
+```
+$1x^2+3x+5$ - $2x^2+6x+3$
+```
 - Polynomials Multiplication
-
+```
+$1x^2+3x+5$ * $2x^2+6x+3$
+```
 - Multiplication of Polynomial by a Constant
-
+```
+$1x^2+3x+5$ * 5
+```
 - Derivative of Polynomial
-
+```
+der $1x^2+3x+5$
+```
 - Definite Integral of Polynomial
-
+```
+integral $1x^2+3x+5$ 0 , 1
+```
 - Indefinite Integral of Polynomial
-
+```
+integral $1x^2+3x+5$
+```
 - Polynomial Evaluation
-
+```
+eval $1x^2+3x+5$ 2
+```
 - Degree of Polynomial
-
+```
+degree $1x^2+3x+5$
+```
+- Degree of Monomial
+```
+degree 1x^2
+```
 - Equal Polynomial
-
+```
+$1x^2+3x+5$ = $1x^2+3x+5$
+```
 ------------------------------
 
 ## Running Project

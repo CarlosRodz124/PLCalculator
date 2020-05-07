@@ -263,8 +263,38 @@ public class PolynomialImp extends TermListFactory implements Polynomial {
 				curr++;
 
 			}
-		return P3;	
+		return P3;
 	}
+
+	//metodo de la anti-derivada
+//	@Override
+//	public Polynomial indefiniteIntegral() {
+//		Iterator<Term> ThisIter = this.iterator();
+//		Term ThisTerm = ThisIter.next();
+//		String s="";
+//
+//		while(ThisIter.hasNext()) {
+//			double currCoefficient = ThisTerm.getCoefficient();
+//			int currExponent = ThisTerm.getExponent();
+//			if(currCoefficient!=0) {
+//				s += currCoefficient/(currExponent + 1) + "x^"+ (currExponent + 1) +"+";
+//				ThisTerm= ThisIter.next();
+//			}
+//		}
+//
+//		// last term
+//		int currExponent = ThisTerm.getExponent();
+//		double currCoefficient = ThisTerm.getCoefficient();
+//		int C = 0;
+//
+//		if (currCoefficient == 1)
+//			s += currCoefficient/(currExponent + 1) + "x"+ "+1.00";
+//		else if (currCoefficient != 0)
+//			s += currCoefficient/(currExponent + 1) + "x^"+ (currExponent + 1) + "+1.00";
+//
+//		Polynomial poly = new PolynomialImp(s);
+//		return poly;
+//	}
 
 	@Override
 	public double definiteIntegral(double a, double b) { //this method calculate the definite Integral of the polynomial
