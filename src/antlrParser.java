@@ -10,12 +10,21 @@ import polynomial.PolynomialImp;
 
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class antlrParser {
 
     public static void main(String[] args) throws IOException {
-        try {
-            CharStream charStream = CharStreams.fromFileName("inputExamplePoly");
+        while(true){
+            Scanner in = new Scanner(System.in);
+            System.out.println("Enter the program:");
+            String program = in.nextLine();
+            program="class pl{"+program+"}";
+            if(program.equals("quit")){
+                System.out.println("Exit");
+                break;
+            }
+            CharStream charStream = CharStreams.fromString(program);
             polyLexer polylexer = new polyLexer(charStream);
             CommonTokenStream commonTokenStream = new CommonTokenStream(polylexer);
             polyParser polyparser = new polyParser(commonTokenStream);
@@ -24,11 +33,10 @@ public class antlrParser {
 
             Myvisitor visitor = new Myvisitor();
             visitor.visit(tree);
-            System.out.println("done");
+
+
         }
-        catch (IOException e){
-            e.printStackTrace();
-        }
+
     }
 
 }
