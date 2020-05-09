@@ -60,18 +60,12 @@ degree 1x^2
 ```
 - Equal Polynomial
 ```
-$1x^2+3x+5$ = $1x^2+3x+5$
+$1x^2+3x+5$ == $1x^2+3x+5$
 ```
 ------------------------------
 
-## Running Project
-
-
--------------------
-
-## Example Image
-
-
+## Running Project and Example Image
+![GitHub Logo](PLExample.png)
 -----------------
 
 ## Authors
