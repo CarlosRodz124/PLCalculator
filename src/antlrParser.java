@@ -25,6 +25,10 @@ public class antlrParser {
                 break;
             }
             CharStream charStream = CharStreams.fromString(program);
+            /*
+            // if you want to text the 2 Example files comment every line after the while, otherwise enter the input to text
+            CharStream charStream = CharStreams.fromFileName("inputExamplePoly");
+            */
             polyLexer polylexer = new polyLexer(charStream);
             CommonTokenStream commonTokenStream = new CommonTokenStream(polylexer);
             polyParser polyparser = new polyParser(commonTokenStream);
