@@ -65,7 +65,7 @@ $1x^2+3x+5$ = $1x^2+3x+5$
 ------------------------------
 
 ## Running Project and Example Image
-![GitHub Logo](/images/PLExample.png)
+![GitHub Logo](PLExample.png)
 -----------------
 
 ## Authors
