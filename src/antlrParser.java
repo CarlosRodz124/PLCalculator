@@ -1,8 +1,6 @@
 
 import org.antlr.runtime.ANTLRFileStream;
-import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.misc.*;
 import polynomial.Polynomial;
@@ -10,6 +8,8 @@ import polynomial.PolynomialImp;
 
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class antlrParser {
@@ -42,8 +42,7 @@ public class antlrParser {
 }
 
 class Myvisitor extends polyBaseVisitor<Object> {
-
-
+    Map<String,Object> symbolTable = new HashMap<String,Object>();
     @Override public Object visitExp(polyParser.ExpContext ctx) {
         return visitChildren(ctx);
     }
@@ -52,19 +51,50 @@ class Myvisitor extends polyBaseVisitor<Object> {
         Polynomial P1= new PolynomialImp(tokens[1]);
         Polynomial P2 = new PolynomialImp(tokens[3]);
         Polynomial P3 = P1.add(P2);
-        System.out.println(P3);
-        System.out.println(tokens[1]);
-        System.out.println(tokens[3]);
+        symbolTable.put(ctx.getText(),P3);
         return visitChildren(ctx);
     }
+    @Override public Object visitPrint(polyParser.PrintContext ctx) {
+        System.out.println(symbolTable.get(symbolTable.get(ctx.exp().getText())));
+        return visitChildren(ctx);
+    }
+
+    @Override public Object visitIdop(polyParser.IdopContext ctx) {
+        String id1=ctx.children.get(0).getText();
+        String id2=ctx.children.get(1).getText();
+        String id3=ctx.children.get(2).getText();
+        if(id2.equals("+")){
+            String[] token1 = symbolTable.get(id1).toString().split("\\$");
+            String[] token2 = symbolTable.get(id3).toString().split("\\$");
+            Polynomial P1= new PolynomialImp(token1[1]);
+            Polynomial P2 = new PolynomialImp(token2[1]);
+            Polynomial P3 = P1.add(P2);
+            symbolTable.put(ctx.getText(),P3);
+        }else if(id2.equals("-")){
+            String[] token1 = symbolTable.get(id1).toString().split("\\$");
+            String[] token2 = symbolTable.get(id3).toString().split("\\$");
+            Polynomial P1= new PolynomialImp(token1[1]);
+            Polynomial P2 = new PolynomialImp(token2[1]);
+            Polynomial P3 = P1.subtract(P2);
+            symbolTable.put(ctx.getText(),P3);
+        }else if(id2.equals("*")){
+            String[] token1 = symbolTable.get(id1).toString().split("\\$");
+            String[] token2 = symbolTable.get(id3).toString().split("\\$");
+            Polynomial P1= new PolynomialImp(token1[1]);
+            Polynomial P2 = new PolynomialImp(token2[1]);
+            Polynomial P3 = P1.multiply(P2);
+            symbolTable.put(ctx.getText(),P3);
+        }
+        return visitChildren(ctx);
+    }
+
+
     @Override public Object visitSubpolynomial(polyParser.SubpolynomialContext ctx) {
         String[] tokens = ctx.getText().split("\\$");
         Polynomial P1= new PolynomialImp(tokens[1]);
         Polynomial P2 = new PolynomialImp(tokens[3]);
         Polynomial P3 = P1.subtract(P2);
-        System.out.println(P3);
-        System.out.println(tokens[1]);
-        System.out.println(tokens[3]);
+        symbolTable.put(ctx.getText(),P3);
         return visitChildren(ctx);
     }
 
@@ -73,9 +103,7 @@ class Myvisitor extends polyBaseVisitor<Object> {
         Polynomial P1= new PolynomialImp(tokens[1]);
         Polynomial P2 = new PolynomialImp(tokens[3]);
         Polynomial P3 = P1.multiply(P2);
-        System.out.println(P3);
-        System.out.println(tokens[1]);
-        System.out.println(tokens[3]);
+        symbolTable.put(ctx.getText(),P3);
         return visitChildren(ctx);
     }
 
@@ -84,9 +112,7 @@ class Myvisitor extends polyBaseVisitor<Object> {
         Polynomial P1= new PolynomialImp(tokens[1]);
         Integer c = new Integer(tokens[2].substring(1));
         Polynomial P3 = P1.multiply(c);
-        System.out.println(P3);
-        System.out.println(tokens[1]);
-        System.out.println(tokens[2]);
+        symbolTable.put(ctx.getText(),P3);
         return visitChildren(ctx);
     }
 
@@ -94,8 +120,7 @@ class Myvisitor extends polyBaseVisitor<Object> {
         String[] tokens = ctx.getText().split("\\$");
         Polynomial P1= new PolynomialImp(tokens[1]);
         Polynomial P3 = P1.derivative();
-        System.out.println(P3);
-        System.out.println(tokens[1]);
+        symbolTable.put(ctx.getText(),P3);
         return visitChildren(ctx);
     }
 
@@ -103,8 +128,8 @@ class Myvisitor extends polyBaseVisitor<Object> {
         String[] tokens = ctx.getText().split("\\$");
         Polynomial P1= new PolynomialImp(tokens[1]);
         Polynomial P3 = P1.indefiniteIntegral();
-        System.out.println(P3+ "+c");
-        System.out.println(tokens[1]);
+        String temp=P3.toString()+"+c";
+        symbolTable.put(ctx.getText(),temp);
         return visitChildren(ctx);
     }
 
@@ -115,21 +140,16 @@ class Myvisitor extends polyBaseVisitor<Object> {
         Integer a = new Integer(tokens[2].substring(0,commaPos));
         Integer b = new Integer(tokens[2].substring(commaPos+1));
         double P3 = P1.definiteIntegral(a, b);
-        System.out.println(P3);
-        System.out.println(tokens[1]);
-        System.out.println(a);
-        System.out.println(b);
+        symbolTable.put(ctx.getText(),P3);
         return visitChildren(ctx);
     }
 
     @Override public Object visitEvalpolynomial(polyParser.EvalpolynomialContext ctx) {
         String[] tokens = ctx.getText().split("\\$");
-        Polynomial P1= new PolynomialImp(tokens[2]);
-        Integer x = new Integer(tokens[3]);
+        Polynomial P1= new PolynomialImp(tokens[1]);
+        Integer x = new Integer(tokens[2]);
         double P3 = P1.evaluate(x);
-        System.out.println(P3);
-        System.out.println(tokens[2]);
-        System.out.println(tokens[3]);
+        symbolTable.put(ctx.getText(),P3);
         return visitChildren(ctx);
     }
 
@@ -137,8 +157,7 @@ class Myvisitor extends polyBaseVisitor<Object> {
         String[] tokens = ctx.getText().split("\\$");
         Polynomial P1= new PolynomialImp(tokens[1]);
         double P3 = P1.degree();
-        System.out.println(P3);
-        System.out.println(tokens[1]);
+        symbolTable.put(ctx.getText(),P3);
         return visitChildren(ctx);
     }
 
@@ -147,9 +166,7 @@ class Myvisitor extends polyBaseVisitor<Object> {
         Polynomial P1= new PolynomialImp(tokens[1]);
         Polynomial P2 = new PolynomialImp(tokens[3]);
         boolean P3 = P1.equals(P2);
-        System.out.println(P3);
-        System.out.println(tokens[1]);
-        System.out.println(tokens[3]);
+        symbolTable.put(ctx.getText(),P3);
         return visitChildren(ctx);
     }
 
@@ -174,7 +191,12 @@ class Myvisitor extends polyBaseVisitor<Object> {
 
     @Override public Object visitPropIdList(polyParser.PropIdListContext ctx) { return visitChildren(ctx); }
 
-    @Override public Object visitDef(polyParser.DefContext ctx) { return visitChildren(ctx); }
+    @Override public Object visitDef(polyParser.DefContext ctx) {
+        String id=ctx.children.get(0).getText();
+        String ex=ctx.children.get(2).getText();
+        symbolTable.put(id,ex);
+        return visitChildren(ctx);
+    }
 
     @Override public Object visitEmpty(polyParser.EmptyContext ctx) { return visitChildren(ctx); }
 
@@ -186,8 +208,12 @@ class Myvisitor extends polyBaseVisitor<Object> {
 
     @Override public Object visitBinop(polyParser.BinopContext ctx) { return visitChildren(ctx); }
 
-    @Override public Object visitId(polyParser.IdContext ctx) { return visitChildren(ctx); }
+    @Override public Object visitId(polyParser.IdContext ctx) {
+        return visitChildren(ctx);
+    }
 
-    @Override public Object visitInteger(polyParser.IntegerContext ctx) { return visitChildren(ctx); }
+    @Override public Object visitInteger(polyParser.IntegerContext ctx) {
+        return visitChildren(ctx);
+    }
 
 }

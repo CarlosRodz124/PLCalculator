@@ -1,3 +1,21 @@
 class lol{
-integral $3x+2$ 
+
+pol2=$2x+4$
+pol3=$3x+2$
+
+pol1=pol2+pol3
+print:pol1;
+
+pol1=pol2-pol3
+print:pol1;
+
+pol1=pol2*pol3
+print:pol1;
+
+pol1=integral$2x^2+4$
+print:pol1;
+
+pol1=der$2x^2+4$
+print:pol1;
+
 }

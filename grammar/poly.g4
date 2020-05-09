@@ -1,5 +1,13 @@
 grammar poly;
 
+@parser::header{
+import java.util.Map;
+import java.util.HashMap;
+}
+@parser::members{
+Map<String,Object> symbolTable = new HashMap<String,Object>();
+}
+
 /*Lexical rules*/
 
 INTEGER: 'integer';
@@ -31,7 +39,9 @@ OPERATOR: '+' | '-' | '~' | '*' | '/' | '=' | '!=' | '<' | '>' | '<=' | '>=' | '
 
 program: 'class' id '{'exp*'}';
 
-exp:  term (binop exp)*
+exp: def
+    | idop
+    | term (binop exp)*
     | 'if' exp ':' exp
     | 'if' exp ':' exp 'else' ':' exp
     | 'while' exp ':' exp
@@ -44,6 +54,7 @@ term: unop term
     | integer
     | bool
     | string
+    | print
     | sumpolynomial
     | subpolynomial
     | mulpolynomial
@@ -57,6 +68,10 @@ term: unop term
     | polynomial
     | monomial
     ;
+
+print: 'print:' exp ';';
+
+idop: id binop id ;
 
 sumpolynomial:polynomial'+'polynomial;
 
@@ -76,7 +91,7 @@ evalpolynomial : 'eval' polynomial integer;
 
 degree : 'degree' polynomial | 'degree' monomial;
 
-equalpolynomial: polynomial '=' polynomial;
+equalpolynomial: polynomial '==' polynomial;
 
 monomial: integer CHARACTER? ( '^' integer)? | integer;
 
@@ -100,7 +115,7 @@ propIdList: id
     | id ',' propIdList
     ;
 
-def: id ':=' exp ';' ;
+def: id '=' exp;
 
 empty: WS;
 

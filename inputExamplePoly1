@@ -1,0 +1,16 @@
+class lol{
+  pol1=$2x^2+4$*3
+  print:pol1;
+
+  pol1=integral$2x^2+4$ 0,1
+  print:pol1;
+
+  pol1=eval$3x+2$ 2
+  print:pol1;
+
+  degr=degree $1x^2+3x+5$
+  print:degr;
+
+  eq=$1x^2+3x+5$==$1x^2+3x+5$
+  print:eq;
+}
